@@ -1,44 +1,82 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  background-color: #add8e6; /* fallback if video fails */
 }
 
-.quiz-container {
-  background: white;
-  padding: 20px 40px;
-  border-radius: 10px;
-  width: 400px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  z-index: 1;
 }
 
-.btn-container {
+.question {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.choices {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-button {
-  padding: 10px;
+.choice {
+  padding: 12px;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 5px;
-  background: #3498db;
+  border-radius: 10px;
+  background-color: #3498db;
   color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.choice:hover {
+  background-color: #2980b9;
+}
+
+.feedback {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+#next-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #2980b9;
-}
-
-.correct {
-  background-color: #2ecc71 !important;
-}
-
-.wrong {
-  background-color: #e74c3c !important;
+#next-btn:hover {
+  background-color: #27ae60;
 }

@@ -1,93 +1,60 @@
 const questions = [
   {
     question: "Apa ibu kota Indonesia?",
-    answers: [
-      { text: "Jakarta", correct: true },
-      { text: "Bandung", correct: false },
-      { text: "Surabaya", correct: false },
-      { text: "Medan", correct: false }
-    ]
+    choices: ["Jakarta", "Bandung", "Surabaya", "Yogyakarta"],
+    answer: "Jakarta"
   },
   {
-    question: "2 + 2 = ?",
-    answers: [
-      { text: "3", correct: false },
-      { text: "4", correct: true },
-      { text: "5", correct: false },
-      { text: "22", correct: false }
-    ]
+    question: "Berapakah hasil dari 3 x 5?",
+    choices: ["15", "10", "8", "20"],
+    answer: "15"
   },
   {
-    question: "Warna primer adalah...",
-    answers: [
-      { text: "Merah, Kuning, Biru", correct: true },
-      { text: "Hijau, Oranye, Ungu", correct: false },
-      { text: "Hitam, Putih, Abu", correct: false },
-      { text: "Merah, Hijau, Biru", correct: false }
-    ]
+    question: "Hewan tercepat di darat adalah?",
+    choices: ["Singa", "Cheetah", "Kuda", "Kelinci"],
+    answer: "Cheetah"
   }
 ];
 
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
+let currentQuestion = 0;
 
-let currentQuestionIndex = 0;
-let score = 0;
+const questionEl = document.getElementById("question");
+const choicesEl = document.getElementById("choices");
+const feedbackEl = document.getElementById("feedback");
+const nextBtn = document.getElementById("next-btn");
 
-function startQuiz() {
-  currentQuestionIndex = 0;
-  score = 0;
-  nextButton.innerText = "Next";
-  showQuestion();
-}
-
-function showQuestion() {
-  resetState();
-  const currentQuestion = questions[currentQuestionIndex];
-  questionElement.innerText = currentQuestion.question;
-
-  currentQuestion.answers.forEach(answer => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("btn");
-    button.addEventListener("click", () => selectAnswer(button, answer.correct));
-    answerButtons.appendChild(button);
+function loadQuestion() {
+  const q = questions[currentQuestion];
+  questionEl.textContent = q.question;
+  choicesEl.innerHTML = "";
+  feedbackEl.textContent = "";
+  q.choices.forEach(choice => {
+    const btn = document.createElement("button");
+    btn.textContent = choice;
+    btn.className = "choice";
+    btn.onclick = () => {
+      if (choice === q.answer) {
+        feedbackEl.textContent = "Benar!";
+        feedbackEl.style.color = "green";
+      } else {
+        feedbackEl.textContent = "Salah!";
+        feedbackEl.style.color = "red";
+      }
+    };
+    choicesEl.appendChild(btn);
   });
 }
 
-function resetState() {
-  nextButton.style.display = "none";
-  answerButtons.innerHTML = "";
-}
-
-function selectAnswer(button, correct) {
-  const buttons = answerButtons.querySelectorAll("button");
-  buttons.forEach(btn => {
-    btn.disabled = true;
-    const isCorrect = questions[currentQuestionIndex].answers.find(a => a.text === btn.innerText).correct;
-    btn.classList.add(isCorrect ? "correct" : "wrong");
-  });
-
-  if (correct) score++;
-  nextButton.style.display = "block";
-}
-
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    showQuestion();
+nextBtn.onclick = () => {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    loadQuestion();
   } else {
-    showScore();
+    questionEl.textContent = "Selesai!";
+    choicesEl.innerHTML = "";
+    feedbackEl.textContent = "";
+    nextBtn.style.display = "none";
   }
-});
+};
 
-function showScore() {
-  resetState();
-  questionElement.innerText = `Selesai! Skor Anda: ${score} / ${questions.length}`;
-  nextButton.innerText = "Ulangi";
-  nextButton.style.display = "block";
-  nextButton.onclick = startQuiz;
-}
-
-startQuiz();
+loadQuestion();
