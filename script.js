@@ -29,30 +29,42 @@ function showQuestion() {
     const btn = document.createElement("button");
     btn.textContent = choice;
     btn.onclick = () => checkAnswer(index);
+    btn.disabled = false;
     choicesDiv.appendChild(btn);
   });
 }
 
 function updateScore() {
-  document.getElementById('score-display').textContent = `Score: ${score}`;
+  document.getElementById('score-display').textContent = score;
 }
 
 function checkAnswer(index) {
   const correct = questions[current].answer;
+  const feedback = document.getElementById('feedback');
+
   if (index === correct) {
-    alert("Benar!");
+    feedback.textContent = "Benar!";
     score += 10;
   } else {
-    alert("Salah!");
+    feedback.textContent = "Salah!";
   }
+
   updateScore();
-  current++;
-  if (current < questions.length) {
-    showQuestion();
-  } else {
-    document.getElementById('question').textContent = "Kuis selesai!";
-    document.getElementById('choices').innerHTML = `<p style="font-size: 2em;">Skor akhir: ${score}</p>`;
-  }
+
+  // Disable all buttons
+  const buttons = document.querySelectorAll("#choices button");
+  buttons.forEach(btn => btn.disabled = true);
+
+  setTimeout(() => {
+    feedback.textContent = "";
+    current++;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      document.getElementById('question').textContent = "Kuis selesai!";
+      document.getElementById('choices').innerHTML = `<p style="font-size: 2em;">Skor akhir: ${score}</p>`;
+    }
+  }, 5000);
 }
 
 showQuestion();
