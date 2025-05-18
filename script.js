@@ -1,18 +1,18 @@
 const questions = [
   {
-    image: "Images/gambar1.jpg",
+    image: "Images/Gambar1.jpg",
     question: "Apa nama hewan ini?",
     choices: ["Gajah", "Singa", "Harimau", "Zebra"],
     answer: "Gajah"
   },
   {
-    image: "Images/gambar2.jpg",
+    image: "Images/Gambar2.jpg",
     question: "Apa nama buah ini?",
     choices: ["Apel", "Mangga", "Pisang", "Durian"],
     answer: "Mangga"
   },
   {
-    image: "Images/gambar3.jpg",
+    image: "Images/Gambar3.jpg",
     question: "Apa nama alat ini?",
     choices: ["Gergaji", "Obeng", "Palu", "Tang"],
     answer: "Palu"
