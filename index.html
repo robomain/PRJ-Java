@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Game</title>
+  <title>Tebak Gambar</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <video autoplay muted loop id="bg-video">
+  <video autoplay muted loop id="bgVideo">
     <source src="Images/background.mp4" type="video/mp4" />
   </video>
 
-  <img src="Images/Pertamina_Logo.png" alt="Logo" class="logo" />
+  <div class="container">
+    <img src="Images/Pertamina_Logo.png" alt="Pertamina Logo" class="logo" />
 
-  <div class="score-box">
-    <div class="score-label">SCORE</div>
-    <div id="score-display">0</div>
+    <div class="score-box-bottom">
+      <h2>SCORE</h2>
+      <p id="score">0</p>
+    </div>
+
+    <div class="question-box">
+      <img id="questionImage" src="" alt="Soal Gambar" class="question-image" />
+      <h2 id="question">Loading question...</h2>
+      <div class="choices" id="choices"></div>
+    </div>
   </div>
 
-  <div class="question-box">
-    <div id="question">Loading question...</div>
-    <div id="choices"></div>
-  </div>
-
-  <div id="feedback"></div>
+  <div class="feedback-box" id="feedbackBox">Feedback</div>
 
   <script src="script.js"></script>
 </body>
