@@ -37,13 +37,13 @@ body, html {
 }
 
 .score-label {
-  font-size: 2.5vh;
+  font-size: 5vh;
   font-weight: bold;
   margin-bottom: 0.5vh;
 }
 
 #score-display {
-  font-size: 3vh;
+  font-size: 6vh;
   font-weight: bold;
 }
 
@@ -59,7 +59,7 @@ body, html {
 }
 
 #question {
-  font-size: 2.5vh;
+  font-size: 5vh;
   margin-bottom: 2vh;
 }
 
@@ -68,7 +68,7 @@ body, html {
   width: 100%;
   margin: 1vh 0;
   padding: 1vh;
-  font-size: 2vh;
+  font-size: 5vh;
   border-radius: 8px;
   border: none;
   background-color: #007bff;
@@ -85,7 +85,7 @@ body, html {
   bottom: 2vh;
   width: 100%;
   text-align: center;
-  font-size: 3vh;
+  font-size: 6vh;
   font-weight: bold;
   color: white;
   text-shadow: 1px 1px 4px black;
