@@ -1,71 +1,64 @@
 const questions = [
   {
-    question: "Apa kepanjangan dari BUMN?",
-    choices: [
-      "Badan Umum Milik Negara",
-      "Badan Usaha Milik Negara",
-      "Badan Urusan Masyarakat Nasional",
-      "Bank Umum Masyarakat Nasional"
-    ],
-    answer: 1
+    question: "Apa ibukota Indonesia?",
+    choices: ["Bandung", "Surabaya", "Jakarta", "Medan"],
+    answer: 2
   },
   {
-    question: "Siapa presiden Indonesia pertama?",
-    choices: ["Soekarno", "Soeharto", "BJ Habibie", "Jokowi"],
-    answer: 0
+    question: "Siapa presiden pertama Indonesia?",
+    choices: ["Soeharto", "Jokowi", "BJ Habibie", "Soekarno"],
+    answer: 3
+  },
+  {
+    question: "Apa lambang negara Indonesia?",
+    choices: ["Merpati", "Elang", "Garuda", "Rajawali"],
+    answer: 2
   }
 ];
 
-let current = 0;
+let currentQuestion = 0;
 let score = 0;
 
+const questionEl = document.getElementById('question');
+const choicesEl = document.getElementById('choices');
+const feedbackEl = document.getElementById('feedback');
+const scoreDisplay = document.getElementById('score-display');
+
 function showQuestion() {
-  const q = questions[current];
-  document.getElementById('question').textContent = q.question;
-  const choicesDiv = document.getElementById('choices');
-  choicesDiv.innerHTML = "";
+  const q = questions[currentQuestion];
+  questionEl.textContent = q.question;
+  choicesEl.innerHTML = '';
 
   q.choices.forEach((choice, index) => {
-    const btn = document.createElement("button");
+    const btn = document.createElement('button');
     btn.textContent = choice;
-    btn.onclick = () => checkAnswer(index);
-    btn.disabled = false;
-    choicesDiv.appendChild(btn);
+    btn.classList.add('choice-btn');
+    btn.onclick = () => handleAnswer(index);
+    choicesEl.appendChild(btn);
   });
 }
 
-function updateScore() {
-  document.getElementById('score-display').textContent = score;
-}
-
-function checkAnswer(index) {
-  const correct = questions[current].answer;
-  const feedback = document.getElementById('feedback');
-
-  if (index === correct) {
-    feedback.textContent = "Benar!";
+function handleAnswer(selected) {
+  const correct = questions[currentQuestion].answer;
+  if (selected === correct) {
+    feedbackEl.textContent = "Benar!";
     score += 10;
   } else {
-    feedback.textContent = "Salah!";
+    feedbackEl.textContent = "Salah!";
   }
+  scoreDisplay.textContent = score;
 
-  updateScore();
-
-  // Disable all buttons
-  const buttons = document.querySelectorAll("#choices button");
-  buttons.forEach(btn => btn.disabled = true);
-
+  // Tunggu 5 detik lalu ke soal berikutnya
   setTimeout(() => {
-    feedback.textContent = "";
-    current++;
-    if (current < questions.length) {
+    feedbackEl.textContent = "";
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
       showQuestion();
     } else {
-      document.getElementById('question').textContent = "Kuis selesai!";
-      document.getElementById('choices').innerHTML = `<p style="font-size: 2em;">Skor akhir: ${score}</p>`;
+      questionEl.textContent = "Quiz Selesai!";
+      choicesEl.innerHTML = "";
     }
   }, 5000);
 }
 
 showQuestion();
-updateScore();
