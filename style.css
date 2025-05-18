@@ -29,7 +29,7 @@ body, html {
 
 .logo {
   width: 100%;
-  max-width: 300px;
+  max-width: 150px; /* sebelumnya 300px */
   height: auto;
   margin: 10px auto;
   display: block;
@@ -37,9 +37,9 @@ body, html {
 
 .score-box {
   width: 100%;
-  max-width: 250px;
+  max-width: 125px; /* sebelumnya 250px */
   margin: 10px auto 20px;
-  padding: 10px;
+  padding: 5px; /* dikurangi padding */
   background-color: rgba(173, 216, 230, 0.7);
   border: 3px solid white;
   border-radius: 15px;
@@ -47,14 +47,14 @@ body, html {
 }
 
 .score-label {
-  font-size: 2.5em;
+  font-size: 1.25em; /* sebelumnya 2.5em */
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   text-shadow: 1px 1px 2px black;
 }
 
 #score-display {
-  font-size: 2.5em;
+  font-size: 1.25em; /* sebelumnya 2.5em */
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
 }
