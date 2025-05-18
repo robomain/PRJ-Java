@@ -1,12 +1,9 @@
-* {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body, html {
-  height: 100%;
   font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: lightblue;
   overflow: hidden;
 }
 
@@ -14,86 +11,82 @@ body, html {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   z-index: -1;
 }
 
-.overlay {
-  position: relative;
-  text-align: center;
-  color: white;
-  padding: 20px;
-}
-
 .logo {
-  width: 100%;
-  max-width: 150px; /* sebelumnya 300px */
+  width: 50vw;
+  max-width: 100%;
   height: auto;
-  margin: 10px auto;
   display: block;
+  margin: 2vh auto 1vh;
 }
 
 .score-box {
-  width: 100%;
-  max-width: 125px; /* sebelumnya 250px */
-  margin: 10px auto 20px;
-  padding: 5px; /* dikurangi padding */
-  background-color: rgba(173, 216, 230, 0.7);
-  border: 3px solid white;
-  border-radius: 15px;
-  box-shadow: 0 0 5px white;
+  width: 50vw;
+  max-width: 100%;
+  margin: 0 auto 2vh;
+  padding: 1vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #fff;
 }
 
 .score-label {
-  font-size: 1.25em; /* sebelumnya 2.5em */
+  font-size: 2.5vh;
   font-weight: bold;
-  margin-bottom: 3px;
-  text-shadow: 1px 1px 2px black;
+  margin-bottom: 0.5vh;
 }
 
 #score-display {
-  font-size: 1.25em; /* sebelumnya 2.5em */
+  font-size: 3vh;
   font-weight: bold;
-  text-shadow: 1px 1px 2px black;
 }
 
 .question-box {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: black;
-  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2vh;
   border-radius: 10px;
-  max-width: 800px;
-  margin: 20px auto;
-  font-size: 2em;
+  box-shadow: 0 0 10px #000;
+  text-align: center;
 }
 
-#choices {
-  margin-top: 15px;
+#question {
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
 }
 
-.choice-btn {
+#choices button {
   display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  cursor: pointer;
+  width: 100%;
+  margin: 1vh 0;
+  padding: 1vh;
+  font-size: 2vh;
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
-  background-color: #2196F3;
+  background-color: #007bff;
   color: white;
-  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
-.choice-btn:hover {
-  background-color: #1976D2;
+#choices button:hover {
+  background-color: #0056b3;
 }
 
 #feedback {
-  margin-top: 30px;
-  font-size: 2em;
+  position: fixed;
+  bottom: 2vh;
+  width: 100%;
+  text-align: center;
+  font-size: 3vh;
   font-weight: bold;
-  color: yellow;
-  text-shadow: 1px 1px 2px black;
+  color: white;
+  text-shadow: 1px 1px 4px black;
 }

@@ -1,64 +1,59 @@
 const questions = [
   {
-    question: "Apa ibukota Indonesia?",
+    question: "Apa ibu kota Indonesia?",
     choices: ["Bandung", "Surabaya", "Jakarta", "Medan"],
-    answer: 2
+    answer: "Jakarta"
   },
   {
     question: "Siapa presiden pertama Indonesia?",
     choices: ["Soeharto", "Jokowi", "BJ Habibie", "Soekarno"],
-    answer: 3
+    answer: "Soekarno"
   },
   {
-    question: "Apa lambang negara Indonesia?",
-    choices: ["Merpati", "Elang", "Garuda", "Rajawali"],
-    answer: 2
+    question: "Apa warna bendera Indonesia?",
+    choices: ["Merah-Putih", "Merah-Kuning", "Biru-Merah", "Putih-Hijau"],
+    answer: "Merah-Putih"
   }
 ];
 
 let currentQuestion = 0;
 let score = 0;
 
-const questionEl = document.getElementById('question');
-const choicesEl = document.getElementById('choices');
-const feedbackEl = document.getElementById('feedback');
-const scoreDisplay = document.getElementById('score-display');
-
 function showQuestion() {
   const q = questions[currentQuestion];
-  questionEl.textContent = q.question;
-  choicesEl.innerHTML = '';
-
-  q.choices.forEach((choice, index) => {
-    const btn = document.createElement('button');
+  document.getElementById("question").textContent = q.question;
+  const choicesContainer = document.getElementById("choices");
+  choicesContainer.innerHTML = "";
+  q.choices.forEach(choice => {
+    const btn = document.createElement("button");
     btn.textContent = choice;
-    btn.classList.add('choice-btn');
-    btn.onclick = () => handleAnswer(index);
-    choicesEl.appendChild(btn);
+    btn.onclick = () => checkAnswer(choice);
+    choicesContainer.appendChild(btn);
   });
 }
 
-function handleAnswer(selected) {
-  const correct = questions[currentQuestion].answer;
-  if (selected === correct) {
-    feedbackEl.textContent = "Benar!";
-    score += 10;
+function checkAnswer(choice) {
+  const feedback = document.getElementById("feedback");
+  const correct = questions[currentQuestion].answer === choice;
+  if (correct) {
+    feedback.textContent = "BENAR!";
+    score++;
+    document.getElementById("score-display").textContent = score;
   } else {
-    feedbackEl.textContent = "Salah!";
+    feedback.textContent = "SALAH!";
   }
-  scoreDisplay.textContent = score;
 
-  // Tunggu 5 detik lalu ke soal berikutnya
-  setTimeout(() => {
-    feedbackEl.textContent = "";
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
+  currentQuestion++;
+  if (currentQuestion >= questions.length) {
+    setTimeout(() => {
+      feedback.textContent = "KUIS SELESAI!";
+    }, 5000);
+  } else {
+    setTimeout(() => {
+      feedback.textContent = "";
       showQuestion();
-    } else {
-      questionEl.textContent = "Quiz Selesai!";
-      choicesEl.innerHTML = "";
-    }
-  }, 5000);
+    }, 5000);
+  }
 }
 
 showQuestion();
