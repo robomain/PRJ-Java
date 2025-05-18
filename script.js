@@ -1,53 +1,47 @@
 const questions = [
   {
-    question: "What is the capital of France?",
-    choices: ["Paris", "London", "Rome", "Madrid"],
-    answer: "Paris"
+    question: "Apa kepanjangan dari BUMN?",
+    choices: [
+      "Badan Umum Milik Negara",
+      "Badan Usaha Milik Negara",
+      "Badan Urusan Masyarakat Nasional",
+      "Bank Umum Masyarakat Nasional"
+    ],
+    answer: 1
   },
   {
-    question: "2 + 2 = ?",
-    choices: ["3", "4", "5", "22"],
-    answer: "4"
-  },
-  {
-    question: "Which one is a programming language?",
-    choices: ["HTML", "CSS", "Python", "Wi-Fi"],
-    answer: "Python"
+    question: "Siapa presiden Indonesia pertama?",
+    choices: ["Soekarno", "Soeharto", "BJ Habibie", "Jokowi"],
+    answer: 0
   }
 ];
 
 let current = 0;
 
-const questionEl = document.getElementById("question");
-const choicesEl = document.getElementById("choices");
-const feedbackEl = document.getElementById("feedback");
-
-function loadQuestion() {
+function showQuestion() {
   const q = questions[current];
-  questionEl.textContent = q.question;
-  choicesEl.innerHTML = "";
-  feedbackEl.textContent = "";
+  document.getElementById('question').textContent = q.question;
+  const choicesDiv = document.getElementById('choices');
+  choicesDiv.innerHTML = "";
 
-  q.choices.forEach(choice => {
+  q.choices.forEach((choice, index) => {
     const btn = document.createElement("button");
     btn.textContent = choice;
-    btn.className = "choice-btn";
-    btn.onclick = () => {
-      if (choice === q.answer) {
-        feedbackEl.textContent = "Correct!";
-        feedbackEl.style.color = "lightgreen";
-      } else {
-        feedbackEl.textContent = "Wrong!";
-        feedbackEl.style.color = "salmon";
-      }
-
-      setTimeout(() => {
-        current = (current + 1) % questions.length;
-        loadQuestion();
-      }, 1000);
-    };
-    choicesEl.appendChild(btn);
+    btn.onclick = () => checkAnswer(index);
+    choicesDiv.appendChild(btn);
   });
 }
 
-loadQuestion();
+function checkAnswer(index) {
+  const correct = questions[current].answer;
+  alert(index === correct ? "Benar!" : "Salah!");
+  current++;
+  if (current < questions.length) {
+    showQuestion();
+  } else {
+    document.getElementById('question').textContent = "Kuis selesai!";
+    document.getElementById('choices').innerHTML = "";
+  }
+}
+
+showQuestion();
