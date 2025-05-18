@@ -1,0 +1,15 @@
+{
+  "name": "PRJ Java Game",
+  "short_name": "PRJ Game",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#87CEFA",
+  "theme_color": "#87CEFA",
+  "icons": [
+    {
+      "src": "Images/Pertamina_Logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
