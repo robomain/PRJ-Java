@@ -31,8 +31,8 @@ video#bgVideo {
 }
 
 .score-box-bottom {
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 4px solid white;
+  background-color: #ed1b2f;
+  border: 4px solid #acc42a;
   padding: 1vh 4vw;
   text-align: center;
   width: 50vw;
@@ -43,7 +43,7 @@ video#bgVideo {
 
 .score-box-bottom h2 {
   margin: 0;
-  font-size: 2.5vh;
+  font-size: 3vh;
 }
 
 .score-box-bottom p {
