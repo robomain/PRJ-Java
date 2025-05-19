@@ -54,7 +54,7 @@ video#bgVideo {
 
 .question-box {
   margin-top: 2vh;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(25, 0, 255);
   padding: 2vh;
   border-radius: 10px;
   width: 95vw;
