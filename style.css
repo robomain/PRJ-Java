@@ -93,7 +93,7 @@ video#bgVideo {
 
 .feedback-box {
   position: fixed;
-  bottom: 8vh;
+  bottom: 4vh;
   left: 50%;
   transform: translateX(-50%);
   padding: 1.5vh 3vw;
