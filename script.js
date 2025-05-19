@@ -51,9 +51,8 @@ function checkAnswer(selected) {
     if (currentQuestion < questions.length) {
       loadQuestion();
     } else {
-      document.getElementById("question").textContent = "Selesai!";
-      document.getElementById("choices").innerHTML = "";
-      document.getElementById("questionImage").style.display = "none";
+      document.querySelector(".question-box").style.display = "none";
+      document.getElementById("endScreen").style.display = "block";
     }
   }, 5000);
 }
