@@ -7,7 +7,7 @@
   },
   {
     "image": "Images/Gambar2.png",
-    "question": "Gambar oli tipe apakah ini?",
+    "question": "Tipe apakah oli yang terlihat di gambar ini?",
     "choices": ["Fastron Techno", "Mesran Super", "Enduro Matic G", "Meditran SX"],
     "answer": "Fastron Techno"
   },
