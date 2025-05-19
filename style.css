@@ -63,7 +63,7 @@ video#bgVideo {
 
 .question-image {
   width: 100%;
-  max-height: 20vh; /* diperkecil */
+  max-height: 20vh; /* Setengah tinggi semula */
   object-fit: contain;
   border-radius: 10px;
   margin-bottom: 2vh;
@@ -100,7 +100,6 @@ video#bgVideo {
   border: 3px solid white;
 }
 
-/* layar akhir */
 #endScreen {
   position: fixed;
   top: 50%;
