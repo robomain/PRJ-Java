@@ -34,7 +34,7 @@ function checkAnswer(selected) {
   const feedbackBox = document.getElementById("feedbackBox");
 
   if (selected === correct) {
-    score++;
+    score+=10;
     document.getElementById("score").textContent = score;
     feedbackBox.textContent = "BENAR!";
     feedbackBox.style.backgroundColor = "green";
