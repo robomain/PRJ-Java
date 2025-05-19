@@ -26,7 +26,7 @@ video#bgVideo {
 
 .logo {
   width: 100vw;
-  max-width: 300px;
+  max-width: 600px;
   margin-top: 1vh;
 }
 
@@ -62,7 +62,7 @@ video#bgVideo {
 }
 
 .question-box h2 {
-  font-size: 5vh; /* Dua kali lebih besar dari default sebelumnya (2.5vh) */
+  font-size: 2.5vh; /* Dua kali lebih besar dari default sebelumnya (2.5vh) */
   margin: 1vh 0;
 }
 
