@@ -1,26 +1,17 @@
-const questions = [
-  {
-    image: "Images/Gambar1.png",
-    question: "Apa nama hewan ini?",
-    choices: ["Gajah", "Singa", "Harimau", "Zebra"],
-    answer: "Gajah"
-  },
-  {
-    image: "Images/Gambar2.png",
-    question: "Apa nama buah ini?",
-    choices: ["Apel", "Mangga", "Pisang", "Durian"],
-    answer: "Mangga"
-  },
-  {
-    image: "Images/Gambar3.png",
-    question: "Apa nama alat ini?",
-    choices: ["Gergaji", "Obeng", "Palu", "Tang"],
-    answer: "Palu"
-  }
-];
-
+let questions = [];
 let currentQuestion = 0;
 let score = 0;
+
+async function loadQuestions() {
+  try {
+    const response = await fetch("questions.json");
+    questions = await response.json();
+    loadQuestion();
+  } catch (error) {
+    document.getElementById("question").textContent = "Gagal memuat soal.";
+    console.error("Error loading questions:", error);
+  }
+}
 
 function loadQuestion() {
   const q = questions[currentQuestion];
@@ -67,4 +58,5 @@ function checkAnswer(selected) {
   }, 5000);
 }
 
-loadQuestion();
+// Jalankan saat halaman dimuat
+loadQuestions();

@@ -1,0 +1,20 @@
+[
+  {
+    "image": "Images/Gambar1.png",
+    "question": "Tabung gas di gambar ini isi berapa kg?",
+    "choices": ["3 kg", "12 kg", "5.5 kg", "10 kg"],
+    "answer": "12 kg"
+  },
+  {
+    "image": "Images/Gambar2.png",
+    "question": "Gambar oli tipe apakah ini?",
+    "choices": ["Fastron Techno", "Mesran Super", "Enduro Matic G", "Meditran SX"],
+    "answer": "Mangga"
+  },
+  {
+    "image": "Images/Gambar3.png",
+    "question": "Oli Mesran Super cocok digunakan untuk?",
+    "choices": ["Kendaraan bensin", "Sepeda motor 2 tak", "Kendaraan produksi tahun 90-an", "Semua Benar"],
+    "answer": "Semua Benar"
+  }
+]
